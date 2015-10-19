@@ -1,0 +1,59 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+.masthead {
+	width: 100%;	
+}
+.logo-area {
+	width: 80%;
+	margin: 2em auto;
+}
+.logo {
+	width: 100%;
+}
+.search-area {
+	width: 100%;
+}
+.form {
+	text-align: center;
+	width: 80%;
+	margin: 2em auto;
+}
+.submit {
+	width: 5em;
+}
+.search-message,
+.results-info {
+	text-align: center;
+	font-size: 1.5em;
+}
+.main {
+	width: 100%;
+}
+
+@media screen and (min-width: 400px) {
+	.logo-area {
+		width: 60%;
+	}
+}
+@media screen and (min-width: 600px) {
+	.logo-area {
+		width: 50%;
+	}
+}
+@media screen and (min-width: 900px) {
+	.logo-area {
+		width: 40%;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.logo-area {
+		width: 30%;
+	}
+}
+@media screen and (min-width: 1600px) {
+	.logo-area {
+		width: 25%;
+	}
+}
