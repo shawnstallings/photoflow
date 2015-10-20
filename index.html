@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Photoflow Instagram Search</title>    
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,700' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script data-require="angular-animate@1.3.11" data-semver="1.3.11" src="https://code.angularjs.org/1.3.11/angular-animate.js"></script>
   </head>
   <body ng-controller="MyCtrl">
-  	<header class="masthead">
+  	<div class="masthead">
   		<div class="logo-area">
   			<img src="images/photoflowlogo.png" alt="PhotoFlow Logo" class="logo">  			
   		</div>
   		<div class="search-area">
-  			<form ng-submit="" class="form">
-  				<input type="search" ng-model="data.tag" name="tag" class="search" placeholder="Enter a tag to search" autocomplete="off" required />
-  				<input type="submit" class="submit" />
+  			<form ng-submit="search(data.search_tag)" class="form">
+  				<input type="search" ng-model="data.search_tag" name="tag" class="search" placeholder="Enter a tag to search" autocomplete="off" required />
+  				<button type="submit" class="submit">Submit</button>
   			</form>
   			<div class="search-message">
   				<p>Searching Instagram for photos tagged with {{ search tag }}</p>
@@ -25,12 +26,12 @@
   				<p>We found {{ # of results }} for {{ search tag }}</p>
   			</div>
   		</div>
-  	</header>
-  	<section class="main">
+  	</div>
+  	<div class="main">
   		<div class="results-area">
   			
   		</div>  		
-  	</section>
+  	</div>
 
 
 

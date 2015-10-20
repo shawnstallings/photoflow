@@ -1,5 +1,6 @@
-body {
+/body {
   box-sizing: border-box;
+  font-family: 'Comfortaa', cursive;
   margin: 0;
 }
 .masthead {
@@ -20,7 +21,11 @@ body {
 	width: 80%;
 	margin: 2em auto;
 }
+.search {
+	font-size: 1.25em;
+}
 .submit {
+	font-size: 1.25em;
 	width: 5em;
 }
 .search-message,
