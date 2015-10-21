@@ -1,11 +1,26 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngAnimate']);
 
-app.controller('MyCtrl', function($scope, $http) {
-	
+app.controller('MyCtrl', ['$scope', '$timeout', '$q', '$http', function($scope, $timeout, $q, $http) {
+	function wait() {
+		return $q(function(resolve, reject) {
+			$timeout(function() {
+				resolve();
+			}, 2000);
+		});
+	}
 
-	$scope.submit = function() {
+	$scope.searchMsg = false;
+	$scope.successMsg = false;
+	$scope.errorMsg = false;
 
-		var url = 'https://api.instagram.com/v1/tags/red/media/recent';
+	$scope.search = function(searchInput) {
+		$scope.searchMsg = true;
+		$scope.successMsg = false;
+		$scope.errorMsg = false;
+		$scope.data.searchValue = searchInput || null;
+		$scope.data.searchTag = null;
+		var searchTag = $scope.data.searchTag
+		var url = 'https://api.instagram.com/v1/tags/' + searchInput + '/media/recent';
 		var request = {
 			callback: 'JSON_CALLBACK',
 			client_id: '60cb16fb5fa2446cb4e25add2fd87c94'
@@ -20,8 +35,15 @@ app.controller('MyCtrl', function($scope, $http) {
 		})
 		.error(function() {
 			console.log("error no data");
-			//create error message
+			$scope.searchMsg = false;
+			$scope.errorMsg = true;
 		})
+		.then(wait)
+		.then(function() {
+			$scope.searchMsg = false;
+			$scope.successMsg = true;
+		})
+		
 	};
 
-});
+}]);

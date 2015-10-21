@@ -6,14 +6,14 @@ body {
 .masthead {
 	width: 100%;	
 }
-.logo-area {
+.logoArea {
 	width: 80%;
 	margin: 2em auto;
 }
 .logo {
 	width: 100%;
 }
-.search-area {
+.searchArea {
 	width: 100%;
 }
 .form {
@@ -28,37 +28,42 @@ body {
 	font-size: 1.25em;
 	width: 5em;
 }
-.search-message,
-.results-info {
+.searchMsg,
+.successMsg {
 	text-align: center;
 	font-size: 1.5em;
+}
+.errorMsg {
+	text-align: center;
+	font-size: 2em;
+	color: #FF0000;
 }
 .main {
 	width: 100%;
 }
 
 @media screen and (min-width: 400px) {
-	.logo-area {
+	.logoArea {
 		width: 60%;
 	}
 }
 @media screen and (min-width: 600px) {
-	.logo-area {
+	.logoArea {
 		width: 50%;
 	}
 }
 @media screen and (min-width: 900px) {
-	.logo-area {
+	.logoArea {
 		width: 40%;
 	}
 }
 @media screen and (min-width: 1200px) {
-	.logo-area {
+	.logoArea {
 		width: 30%;
 	}
 }
 @media screen and (min-width: 1600px) {
-	.logo-area {
+	.logoArea {
 		width: 25%;
 	}
 }
