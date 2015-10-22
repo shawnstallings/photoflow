@@ -16,24 +16,26 @@
   		</div>
   		<div class="searchArea">
   			<form ng-submit="search(data.searchTag)" name="searchForm" class="form">
-  				<input type="search" ng-model="data.searchTag" name="tag" class="search" placeholder="Enter a tag to search" autocomplete="off" required />
-  				<button type="submit" class="submit">Submit</button>
+  				<input type="search" ng-model="data.searchTag" name="tag" class="search" placeholder="Enter Tag Here" autocomplete="off" required />
+  				<button type="submit" class="submit">Search</button>
   			</form>
   			<div class="searchMsg" ng-show="searchMsg">
   				<p>Searching Instagram for photos tagged with {{ data.searchValue }}</p>
   			</div>
   			<div class="successMsg" ng-show="successMsg">
-  				<p>We found ( # of results ) for {{ data.searchValue }}</p>
+  				<p>We found {{ imageData.length }} photos tagged with "{{ data.searchValue }}". Search again to find more!</p>
   			</div>
         <div class="errorMsg" ng-show="errorMsg">
           <p>There was an error, the request failed!</p>
         </div>
   		</div>
   	</header>
-  	<section class="main">
-  		<div class="results-area">
-  			
-  		</div>  		
+  	<section class="resultsContainer">
+  		<div class="photoBox" ng-repeat="item in imageData">
+        <a href="{{ item.link }}">
+          <img ng-src="{{ item.images.low_resolution.url }}" alt="Search Result Image" />
+        </a>
+      </div>	
   	</section>
     <script src="js/myApp.js" type="text/javascript"></script>
   </body>

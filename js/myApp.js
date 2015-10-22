@@ -9,17 +9,22 @@ app.controller('MyCtrl', ['$scope', '$timeout', '$q', '$http', function($scope, 
 		});
 	}
 
+	function emptyImageData() {
+		$scope.imageData = [];		
+	}
+
 	$scope.searchMsg = false;
 	$scope.successMsg = false;
 	$scope.errorMsg = false;
 
 	$scope.search = function(searchInput) {
+		emptyImageData();
 		$scope.searchMsg = true;
 		$scope.successMsg = false;
 		$scope.errorMsg = false;
 		$scope.data.searchValue = searchInput || null;
 		$scope.data.searchTag = null;
-		var searchTag = $scope.data.searchTag
+		var searchTag = $scope.data.searchTag;
 		var url = 'https://api.instagram.com/v1/tags/' + searchInput + '/media/recent';
 		var request = {
 			callback: 'JSON_CALLBACK',
@@ -30,8 +35,9 @@ app.controller('MyCtrl', ['$scope', '$timeout', '$q', '$http', function($scope, 
 			url: url,
 			params: request			
 		})
-		.success(function(data) {
-			console.log(data);
+		.success(function(results) {
+			console.log(results);
+			$scope.imageData = results.data;
 		})
 		.error(function() {
 			console.log("error no data");
