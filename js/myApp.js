@@ -1,6 +1,7 @@
 var app = angular.module('myApp', ['ngAnimate']);
 
 app.controller('MyCtrl', ['$scope', '$timeout', '$q', '$http', function($scope, $timeout, $q, $http) {
+	//Set a 2 second pause
 	function wait() {
 		return $q(function(resolve, reject) {
 			$timeout(function() {
@@ -8,11 +9,12 @@ app.controller('MyCtrl', ['$scope', '$timeout', '$q', '$http', function($scope, 
 			}, 2000);
 		});
 	}
-
+	//clear previous images
 	function emptyImageData() {
 		$scope.imageData = [];		
 	}
-
+	//set state of messages
+	$scope.cautionMsg = true;
 	$scope.searchMsg = false;
 	$scope.successMsg = false;
 	$scope.errorMsg = false;
